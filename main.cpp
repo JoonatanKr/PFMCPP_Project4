@@ -93,90 +93,88 @@ good to go!
 
 #include <iostream>
 
-class FloatType 
+struct FloatType 
 {
-    public:
-        float add(float lhs, float rhs)
-        {
-            return lhs + rhs;
-        }
+    float add(float lhs, float rhs)
+    {
+        return lhs + rhs;
+    }
 
-        float subtract(float lhs, float rhs)
-        {
-            return lhs - rhs;
-        }
+    float subtract(float lhs, float rhs)
+    {
+        return lhs - rhs;
+    }
 
-        float multiply(float lhs, float rhs)
-        {
-            return lhs * rhs;
-        }
+    float multiply(float lhs, float rhs)
+    {
+        return lhs * rhs;
+    }
 
-        float divide(float lhs, float rhs)
+    float divide(float lhs, float rhs)
+    {
+        if (rhs > -0.001f && rhs < 0.001f) 
         {
-            if (rhs == 0) 
-            {
-                std::cout << "warning, floating point division by zero returns 'inf' !" << std::endl;
-            }
-            return lhs / rhs;
+            std::cout << "warning, floating point division by zero returns 'inf' !" << std::endl;
         }
+        return lhs / rhs;
+    }
 };
 
-class DoubleType 
+struct DoubleType 
 {
-    public:
-        double add(double lhs, double rhs)
-        {
-            return lhs + rhs;
-        }
 
-        double subtract(double lhs, double rhs)
-        {
-            return lhs - rhs;
-        }
+    double add(double lhs, double rhs)
+    {
+        return lhs + rhs;
+    }
 
-        double multiply(double lhs, double rhs)
-        {
-            return lhs * rhs;
-        }
+    double subtract(double lhs, double rhs)
+    {
+        return lhs - rhs;
+    }
 
-        double divide(double lhs, double rhs)
-        {
+    double multiply(double lhs, double rhs)
+    {
+        return lhs * rhs;
+    }
 
-            if (rhs == 0) 
-            {
-                std::cout << "warning, floating point division by zero returns 'inf' !" << std::endl;
-            }
-            return lhs / rhs;
+    double divide(double lhs, double rhs)
+    {
+
+        if (rhs > -0.001 && rhs < 0.001) 
+        {
+            std::cout << "warning, floating point division by zero returns 'inf' !" << std::endl;
         }
+        return lhs / rhs;
+    }
 };
 
-class IntType 
+struct IntType
 {
-    public:
-        int add(int lhs, int rhs)
-        {
-            return lhs + rhs;
-        }
+    int add(int lhs, int rhs)
+    {
+        return lhs + rhs;
+    }
 
-        int subtract(int lhs, int rhs)
-        {
-            return lhs - rhs;
-        }
+    int subtract(int lhs, int rhs)
+    {
+        return lhs - rhs;
+    }
 
-        int multiply(int lhs, int rhs)
-        {
-            return lhs * rhs;
-        }
+    int multiply(int lhs, int rhs)
+    {
+        return lhs * rhs;
+    }
 
-        int divide(int lhs, int rhs)
+    int divide(int lhs, int rhs)
+    {
+        if (rhs == 0) 
         {
-            if (rhs == 0) 
-            {
-                std::cout << "error, integer division by zero will crash the program!\nreturning lhs" << std::endl;
-                return lhs;
-            }
-            return lhs / rhs;
+            std::cout << "error, integer division by zero will crash the program!\nreturning lhs" << std::endl;
+            return lhs;
         }
+        return lhs / rhs;
+    }
 };
 
 int main() 
